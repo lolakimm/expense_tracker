@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 public class DatabaseSetup {
     static final String createTableQuery = """
             CREATE TABLE IF NOT EXISTS expenses(
-                id INT PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 date DATE, 
                 category VARCHAR(25),
                 total DOUBLE, 
