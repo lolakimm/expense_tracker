@@ -7,9 +7,19 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ExpenseRepository {
-    private static final String query = """
-        SELECT * FROM EXPENSES;
+    private static final String getQuery = """
+        SELECT * FROM Expenses;
         """;
+    
+    String addQuery = """
+            INSERT INTO Expenses(date, category, total, paymentMethod)
+            VALUES(?, ?, ?, ?);
+            """;
+    
+    String removeQuery = """
+            DELETE FROM Expenses
+            WHERE id = ?;
+            """;
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -18,7 +28,7 @@ public class ExpenseRepository {
     }
 
     public List<Expense> getAllExpenses() {
-        return jdbcTemplate.query(query, (rs, rowNum) ->
+        return jdbcTemplate.query(getQuery, (rs, rowNum) ->
             new Expense(
                 rs.getInt("id"),
                 rs.getString("date"),
@@ -28,4 +38,22 @@ public class ExpenseRepository {
             )
         );
     }
+
+    public Expense addExpense(Expense e) {
+        jdbcTemplate.update(
+            addQuery,
+            e.getDate(),
+            e.getCategory(),
+            e.getTotal(),
+            e.getPaymentMethod()
+        );
+
+        return e;
+    }
+
+    public void removeExpense(int id) {
+        jdbcTemplate.update(removeQuery,id);
+    }
 }
+
+
