@@ -1,6 +1,20 @@
+const categoryColors = {
+    Food: "#36A2EB",
+    Transportation: "#FF6384",
+    Entertainment: "#FFCE56",
+    Shopping: "#9966FF",
+    Bills: "#4BC0C0"
+};
+
 fetch("/api/expenses")
     .then(response => response.json())
     .then(expenses => {
+
+        let foodCount = 0;
+        let transportationCount = 0;
+        let entertainmentCount = 0;
+        let shoppingCount = 0;
+        let billCount = 0;
 
         const tableBody = document.getElementById("expenseTableBody");
 
@@ -15,7 +29,25 @@ fetch("/api/expenses")
             date.textContent = expense.date;
 
             const category = document.createElement("td");
+
+            if (expense.category === "Food") {
+                foodCount++;
+            } 
+            else if (expense.category === "Transportation") {
+                transportationCount++;
+            } 
+            else if (expense.category === "Entertainment") {
+                entertainmentCount++;
+            } 
+            else if (expense.category === "Shopping") {
+                shoppingCount++;
+            }
+            else if (expense.category === "Bills") {
+                billCount++;
+            }
             category.textContent = expense.category;
+            category.style.color = categoryColors[expense.category];
+            category.style.fontWeight = "bold";
 
             const total = document.createElement("td");
             total.textContent = "$" + expense.total.toFixed(2);
@@ -30,5 +62,37 @@ fetch("/api/expenses")
             row.appendChild(paymentMethod);
 
             tableBody.appendChild(row);
+        });
+
+         // create pie chart
+        const ctx = document.getElementById("categoryPieChart");
+
+        new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: [
+                    "Food",
+                    "Transportation",
+                    "Entertainment",
+                    "Shopping",
+                    "Bills"
+                ],
+                datasets: [{
+                    data: [
+                        foodCount,
+                        transportationCount,
+                        entertainmentCount,
+                        shoppingCount,
+                        billCount
+                    ],
+                    backgroundColor: [
+                        categoryColors.Food,
+                        categoryColors.Transportation,
+                        categoryColors.Entertainment,
+                        categoryColors.Shopping,
+                        categoryColors.Bills
+                    ]
+                }]
+            }
         });
     });

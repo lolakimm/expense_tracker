@@ -8,6 +8,21 @@
     padding: 25px 20px 0 20px;
 }
 
+.table-title {
+    font-family: "Nunito", sans-serif;
+    margin-left: 15px;
+    text-shadow: 0.5px 0.5px 1px #aaa;
+    font-weight: bold;
+    color: #08b08f;
+}
+
+.chart-title {
+    font-family: "Nunito", sans-serif;
+    text-shadow: 0.5px 0.5px 1px #aaa;
+    font-weight: bold;
+    color: #08b08f;
+}
+
 .content-table {
     border-collapse: collapse;
     border-radius: 5px 5px 0 0;
@@ -41,4 +56,47 @@
 
 .content-table tbody tr:last-of-type {
     border-bottom: 2px solid #08b08f;
+}
+
+.category-food {
+    color: #36A2EB;
+    font-weight: 550;
+}
+
+.category-transportation {
+    color: #FF6384;
+    font-weight: 550;
+}
+
+.category-entertainment {
+    color: #9966FF;
+    font-weight: 550;
+}
+
+.category-shopping {
+    color: #FFCE56;
+    font-weight: 550;
+}
+
+.category-bills {
+    color: #4BC0C0;
+    font-weight: 550;
+}
+
+.dashboard {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    margin: 25px 20px;
+}
+
+.chart-section {
+    margin-left: 30px;
+    width: 400px;
+}
+
+.chart-section h2 {
+    font-family: "Nunito", sans-serif;
+    text-align: center;
+    margin-left: 30px;
 }

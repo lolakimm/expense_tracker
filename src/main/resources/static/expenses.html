@@ -12,25 +12,36 @@
 </head>
 <body>
 	<h1 class="page-title">My Expense Tracker</h1>
-		<table class="content-table">
-			<thead>
-				<tr> 
-				<th>Transaction ID</th>
-				<th>Date</th>
-				<th>Category</th>
-				<th>Total</th>
-				<th>Payment Method</th>
-				</tr>
-			</thead>
-		<tbody id="expenseTableBody">
+	<div class="dashboard">
+		<div class="table-section">
+			<table class="content-table">
+				<h2 class="table-title">Expense Table</h2>
+				<thead>
+					<tr> 
+					<th>Transaction ID</th>
+					<th>Date</th>
+					<th>Category</th>
+					<th>Total</th>
+					<th>Payment Method</th>
+					</tr>
+				</thead>
+				<tbody id="expenseTableBody">
+				</tbody>
+			</table>
+		</div>
 
-		</tbody>
-		</table>
+		<div class="chart-section">
+			<h2 class="chart-title">Spending By Category</h2>
+			<canvas id="categoryPieChart"></canvas>
+		</div>
+		
+	</div>
 
 <!-- Load jQuery and Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/expenses.js"></script>
 
 </body>
