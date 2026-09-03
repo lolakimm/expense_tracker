@@ -93,6 +93,25 @@ fetch("/api/expenses")
                         categoryColors.Bills
                     ]
                 }]
+            },
+            options: {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label;
+                                const count = context.raw;
+                                const total = context.dataset.data.reduce((sum, value) => sum + value, 0);
+                                const percentage = ((count / total) * 100).toFixed(1);
+
+                                return [
+                                    `Expenses: ${count}`, 
+                                    `Percentage: ${percentage}%`
+                                ];
+                            }
+                        }
+                    }
+                }
             }
         });
     });
