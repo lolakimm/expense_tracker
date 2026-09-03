@@ -23,6 +23,23 @@
     color: #08b08f;
 }
 
+.title-banner {
+    background-color:#b5e3da;
+    padding: 20px 0 25px 0;
+}
+
+/* .banner {
+    height: 50px;
+    background-image: url("/images/money.png");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: contain;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
 .content-table {
     border-collapse: collapse;
     border-radius: 5px 5px 0 0;
@@ -92,7 +109,7 @@
 
 .chart-section {
     margin-left: 30px;
-    width: 400px;
+    width: 475px;
 }
 
 .chart-section h2 {
